@@ -3,18 +3,37 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('App', ['ionic'])
+var stealApp = angular.module('App', ['ionic'])
+
+stealApp.controller("CrimeCtrl", function($scope, $http) {
+  $http.get('http://stealapi.apphb.com/api/Crime/GetARandomCrime').
+    success(function(data, status, headers, config) {
+      console.log("hi");
+      $scope.crimes = data;
+      console.log(data);
+    }).
+    error(function(data, status, headers, config) {
+      // log error
+    });
+});
 
 
-.controller('ToDoCtrl',function($scope) {
-    $scope.tasks = [];
+// function AppCtrl ($scope){
 
-    $scope.doNewTask = function() {
-      $window.alert("Hi");  
-    };
-};
+//   $scope.doNewTask = function(){
+//       alert("yo");
+//       $http({
+//        method: 'GET',
+//         url: 'http://stealapi.apphb.com/api/Crime/GetARandomCrime'
+//             }).then(function successCallback(response) {
+//               Console.log(response);
+//         }, function errorCallback(response) {
+//         });
+//       };
 
-.run(function($ionicPlatform) {
+// }
+
+stealApp.run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
 
     if(window.cordova && window.cordova.plugins.Keyboard) {
@@ -27,19 +46,18 @@ angular.module('App', ['ionic'])
 })
 
 
-
-//navigation
-app.config(function($stateProvider) {
-  $stateProvider
-  .state('index', {
-    url: '/',
-    templateUrl: 'home.html'
-  })
-  .state('music', {
-    url: '/music',
-    templateUrl: 'music.html'
-  });
-});
+// //navigation
+// app.config(function($stateProvider) {
+//   $stateProvider
+//   .state('index', {
+//     url: '/',
+//     templateUrl: 'home.html'
+//   })
+//   .state('music', {
+//     url: '/music',
+//     templateUrl: 'music.html'
+//   });
+// });
 
 
 
