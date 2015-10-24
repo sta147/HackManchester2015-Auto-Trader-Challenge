@@ -43,9 +43,15 @@
       </div>
       <!-- The list directive is great, but be sure to also checkout the collection repeat directive when scrolling through large lists -->
       
-
         <ion-item>
-
+              <ul>
+                <li>{{crimes.Id}}</li>
+                <li>{{crimes.PersistentId}}</li>
+                <li>{{crimes.Context}}</li>
+                <li>{{crimes.Category}}</li>
+                <li>{{crimes.Location.Longitude}}</li>
+                <li>{{crimes.Location.Latitude}}</li>
+              </ul>
         </ion-item>
 
     </ion-content>

@@ -8,7 +8,6 @@ var stealApp = angular.module('App', ['ionic'])
 stealApp.controller("CrimeCtrl", function($scope, $http) {
   $http.get('http://stealapi.apphb.com/api/Crime/GetARandomCrime').
     success(function(data, status, headers, config) {
-      console.log("hi");
       $scope.crimes = data;
       console.log(data);
     }).
@@ -47,7 +46,7 @@ stealApp.run(function($ionicPlatform) {
 
 
 // //navigation
-// app.config(function($stateProvider) {
+// stealApp.config(function($stateProvider) {
 //   $stateProvider
 //   .state('index', {
 //     url: '/',
