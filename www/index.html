@@ -25,12 +25,12 @@
 <body ng-controller="CrimeCtrl">
     
     <ion-header-bar class="bar-positive">
+      <div class="bar bar-header bar-dark">
+          <h1 class="title" style="left: 0px !important;">It's a Steal</h1>
+      </div>
       <div class="buttons">
         <button class="button button-icon icon ion-ios-minus-outline"
           ng-click="data.showDelete = !data.showDelete; data.showReorder = false"></button>
-      </div>
-      <div class="bar bar-header bar-dark">
-  <h1 class="title">It's a Steal</h1>
       </div>
 
     </ion-header-bar>
@@ -44,14 +44,12 @@
       <!-- The list directive is great, but be sure to also checkout the collection repeat directive when scrolling through large lists -->
       
         <ion-item>
-              <ul>
-                <li>{{crimes.Id}}</li>
-                <li>{{crimes.PersistentId}}</li>
-                <li>{{crimes.Context}}</li>
-                <li>{{crimes.Category}}</li>
-                <li>{{crimes.Location.Longitude}}</li>
-                <li>{{crimes.Location.Latitude}}</li>
-              </ul>
+                <p>{{crimes.Id}}</p>
+                <p>{{crimes.PersistentId}}</p>
+                <p>{{crimes.Context}}</p>
+                <p>{{crimes.Category}}</p>
+                <p>{{crimes.Location.Longitude}}</p>
+                <p>{{crimes.Location.Latitude}}</p>
         </ion-item>
 
     </ion-content>
