@@ -8,13 +8,15 @@ var stealApp = angular.module('App', ['ionic'])
 stealApp.controller("CrimeCtrl", function($scope, $http) {
 
     $scope.getData = function(){
+      alert("we're int he func");
         $http.get('http://stealapi.apphb.com/api/Crime/GetARandomCrime').
     success(function(data, status, headers, config) {
+      alert("win");
       $scope.crimes = data;
       console.log(data);
     }).
     error(function(data, status, headers, config) {
-      // log error
+      alert("an error occured.");
     });
   }
 });
