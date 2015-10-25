@@ -35,6 +35,14 @@ stealApp.controller("CrimeCtrl", function($scope, $http) {
 stealApp.run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
 
+      $http.get('http://stealapi.apphb.com/api/Crime/GetARandomCrime').
+    success(function(data, status, headers, config) {
+      $scope.crimes = data;
+      console.log(data);
+    }).
+    error(function(data, status, headers, config) {
+      // log error
+    });
     if(window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
     }
